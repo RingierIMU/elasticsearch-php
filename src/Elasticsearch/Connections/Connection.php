@@ -207,7 +207,7 @@ class Connection implements ConnectionInterface
 
     private function wrapHandler(callable $handler, LoggerInterface $logger, LoggerInterface $tracer)
     {
-        return function (array $request, Connection $connection, Transport $transport = null, $options) use ($handler, $logger, $tracer) {
+        return function (array $request, Connection $connection, ?Transport $transport, $options) use ($handler, $logger, $tracer) {
 
             $this->lastRequest = [];
             $this->lastRequest['request'] = $request;
